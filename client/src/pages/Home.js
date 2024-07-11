@@ -9,7 +9,7 @@ const Home = () => {
   const [sort, setSort] = useState("");
 
   const fetchCourses = async () => {
-    const response = await fetch("/api/reviews/coursesByName/");
+    const response = await fetch("https://course-server-cf4deh2uv-liors-projects-6316a22e.vercel.app/api/reviews/coursesByName/");
     const json = await response.json();
 
     if (response.ok) {

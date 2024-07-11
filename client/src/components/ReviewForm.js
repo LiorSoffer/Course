@@ -38,7 +38,9 @@ const ReviewForm = ({ fetchCourses, courses }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const responseC = await fetch("/api/reviews/courses/");
+    const responseC = await fetch(
+      "https://course-server-cf4deh2uv-liors-projects-6316a22e.vercel.app/api/reviews/courses/"
+    );
     const jsonC = await responseC.json();
     let createUrl = "/api/reviews/new";
     let realCourseName = courseName;
