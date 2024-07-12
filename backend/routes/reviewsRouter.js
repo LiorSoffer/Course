@@ -14,7 +14,7 @@ const {
   updateReview,
 } = require("../controller/reviewsController");
 
-// GET all Courses by name
+// GET all Courses
 router.get("/courses", getCoursesbyName);
 
 // GET all reviews

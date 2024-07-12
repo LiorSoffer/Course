@@ -5,9 +5,11 @@ import MyReview from "../components/MyReview";
 const Profile = () => {
   const [reviews, setReviews] = useState(null);
   const { user } = useAuthContext();
+  let url =
+    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
 
   const fetchReviews = useCallback(async () => {
-    const response = await fetch("https://course-server-cf4deh2uv-liors-projects-6316a22e.vercel.app/api/reviews/user/" + user.email);
+    const response = await fetch(url + "api/user/" + user.email);
     const json = await response.json();
     if (response.ok) {
       setReviews(json);
@@ -23,7 +25,7 @@ const Profile = () => {
       return;
     }
 
-    const response = await fetch("https://course-server-cf4deh2uv-liors-projects-6316a22e.vercel.app/reviews/" + review._id, {
+    const response = await fetch(url + "api/" + review._id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

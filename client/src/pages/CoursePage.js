@@ -5,13 +5,12 @@ import MyReview from "../components/MyReview";
 const CoursePage = () => {
   const { courseNumber, courseName } = useParams();
   const [reviews, setReviews] = useState(null);
+  let url =
+    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const response = await fetch(
-        "https://course-server-cf4deh2uv-liors-projects-6316a22e.vercel.app/api/reviews/course/" +
-          courseNumber
-      );
+      const response = await fetch(url + "api/course/" + courseNumber);
       const json = await response.json();
 
       if (response.ok) {
