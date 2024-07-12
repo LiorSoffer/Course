@@ -6,7 +6,7 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
   let url =
-    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
+    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
 
   const signup = async (email, password) => {
     setIsLoading(true);

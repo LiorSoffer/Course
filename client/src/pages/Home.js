@@ -8,10 +8,10 @@ const Home = () => {
   const [filteredCourses, setFilteredCourses] = useState(null);
   const [sort, setSort] = useState("");
   let url =
-    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
+    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
 
   const fetchCourses = async () => {
-    const response = await fetch(url + " app/api/courses/");
+    const response = await fetch(url + " app/api/reviews/courses/");
     const json = await response.json();
 
     if (response.ok) {

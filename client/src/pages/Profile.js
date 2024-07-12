@@ -6,10 +6,10 @@ const Profile = () => {
   const [reviews, setReviews] = useState(null);
   const { user } = useAuthContext();
   let url =
-    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
+    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
 
   const fetchReviews = useCallback(async () => {
-    const response = await fetch(url + "api/user/" + user.email);
+    const response = await fetch(url + "api/reviews/user/" + user.email);
     const json = await response.json();
     if (response.ok) {
       setReviews(json);
@@ -25,7 +25,7 @@ const Profile = () => {
       return;
     }
 
-    const response = await fetch(url + "api/" + review._id, {
+    const response = await fetch(url + "api/reviews" + review._id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

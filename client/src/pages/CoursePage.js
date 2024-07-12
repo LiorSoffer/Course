@@ -6,11 +6,11 @@ const CoursePage = () => {
   const { courseNumber, courseName } = useParams();
   const [reviews, setReviews] = useState(null);
   let url =
-    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
+    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const response = await fetch(url + "api/course/" + courseNumber);
+      const response = await fetch(url + "api/reviews/course/" + courseNumber);
       const json = await response.json();
 
       if (response.ok) {

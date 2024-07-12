@@ -20,7 +20,7 @@ const ReviewForm = ({ fetchCourses, courses }) => {
   const [comment, setComment] = useState("");
 
   let url =
-    "https://course-server-kzqlymno6-liors-projects-6316a22e.vercel.app/";
+    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
 
   const handleHardChange = (event) => {
     setHard(event.target.value);
@@ -40,9 +40,9 @@ const ReviewForm = ({ fetchCourses, courses }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const responseC = await fetch(url + "api/courses/");
+    const responseC = await fetch(url + "api/reviews/courses/");
     const jsonC = await responseC.json();
-    let createUrl = "/api/new";
+    let createUrl = "/api/reviews/new";
     let realCourseName = courseName;
     if (responseC.ok) {
       let found = false;
@@ -53,7 +53,7 @@ const ReviewForm = ({ fetchCourses, courses }) => {
       }
       if (found) {
         realCourseName = jsonC[index].courseName;
-        createUrl = "/api/exist";
+        createUrl = "/api/reviews/exist";
       }
     }
 
