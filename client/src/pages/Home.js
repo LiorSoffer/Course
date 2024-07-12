@@ -11,7 +11,7 @@ const Home = () => {
     "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
 
   const fetchCourses = async () => {
-    const response = await fetch(url + " app/api/reviews/courses/");
+    const response = await fetch(url + " api/reviews/courses/");
     const json = await response.json();
 
     if (response.ok) {
