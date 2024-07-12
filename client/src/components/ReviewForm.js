@@ -40,27 +40,31 @@ const ReviewForm = ({ fetchCourses, courses }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const responseC = await fetch(url + "api/reviews/courses/");
-    const jsonC = await responseC.json();
-    let createUrl = "api/reviews/new";
-    let realCourseName = courseName;
-    if (responseC.ok) {
-      let found = false;
-      let index = 0;
-      for (let i = 0; i < jsonC.length && !found; i++) {
-        found = jsonC[i].courseNumber === courseNumber;
-        index = i;
-      }
-      if (found) {
-        realCourseName = jsonC[index].courseName;
-        createUrl = "api/reviews/exist";
-      }
-    }
+    // const responseC = await fetch(url + "api/reviews/courses/");
+    // const jsonC = await responseC.json();
+    let createUrl;
+    isNewCourse
+      ? (createUrl = "api/reviews/new")
+      : (createUrl = "api/reviews/exist");
+
+    // let realCourseName = courseName;
+    // if (responseC.ok) {
+    //   let found = false;
+    //   let index = 0;
+    //   for (let i = 0; i < jsonC.length && !found; i++) {
+    //     found = jsonC[i].courseNumber === courseNumber;
+    //     index = i;
+    //   }
+    //   if (found) {
+    //     realCourseName = jsonC[index].courseName;
+    //     createUrl = "api/reviews/exist";
+    //   }
+    // }
 
     const review = {
       nickname: user.email,
       courseNumber,
-      courseName: realCourseName,
+      courseName,
       lecturer,
       year,
       semester,
