@@ -15,10 +15,10 @@ const {
 } = require("../controller/reviewsController");
 
 // GET all Courses by name
-router.get("/coursesByName", getCoursesbyName);
+router.get("/courses", getCoursesbyName);
 
 // GET all reviews
-router.get("/", getReviews);
+router.get("/reviews", getReviews);
 
 //GET reviews of specific course
 router.get("/course/:courseNum", getReviewsByCourse);

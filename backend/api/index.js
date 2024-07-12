@@ -17,8 +17,13 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use("/api/reviews", reviews);
 app.use("/api/user", users);
+app.use("/api/", reviews);
+
+//404
+app.use((req, res, next) => {
+  res.status(404).send('Sorry, Not Found');
+});
 
 // connect to db
 mongoose
