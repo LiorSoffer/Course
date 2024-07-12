@@ -42,7 +42,7 @@ const ReviewForm = ({ fetchCourses, courses }) => {
     e.preventDefault();
     const responseC = await fetch(url + "api/reviews/courses/");
     const jsonC = await responseC.json();
-    let createUrl = "/api/reviews/new";
+    let createUrl = "api/reviews/new";
     let realCourseName = courseName;
     if (responseC.ok) {
       let found = false;
@@ -53,7 +53,7 @@ const ReviewForm = ({ fetchCourses, courses }) => {
       }
       if (found) {
         realCourseName = jsonC[index].courseName;
-        createUrl = "/api/reviews/exist";
+        createUrl = "api/reviews/exist";
       }
     }
 

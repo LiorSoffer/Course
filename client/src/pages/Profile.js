@@ -25,7 +25,7 @@ const Profile = () => {
       return;
     }
 
-    const response = await fetch(url + "api/reviews" + review._id, {
+    const response = await fetch(url + "api/reviews/" + review._id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
