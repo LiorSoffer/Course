@@ -20,7 +20,7 @@ const ReviewForm = ({ fetchCourses, courses }) => {
   const [comment, setComment] = useState("");
 
   let url =
-    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
+    "https://coursesreview.vercel.app/";
 
   const handleHardChange = (event) => {
     setHard(event.target.value);

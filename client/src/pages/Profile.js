@@ -6,7 +6,7 @@ const Profile = () => {
   const [reviews, setReviews] = useState(null);
   const { user } = useAuthContext();
   let url =
-    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
+    "https://coursesreview.vercel.app/";
 
   const fetchReviews = useCallback(async () => {
     const response = await fetch(url + "api/reviews/user/" + user.email);

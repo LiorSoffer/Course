@@ -6,7 +6,7 @@ const CoursePage = () => {
   const { courseNumber, courseName } = useParams();
   const [reviews, setReviews] = useState(null);
   let url =
-    "https://course-server-jnen0jhd4-liors-projects-6316a22e.vercel.app/";
+    "https://coursesreview.vercel.app/";
 
   useEffect(() => {
     const fetchReviews = async () => {
