@@ -5,15 +5,13 @@ const mongoose = require("mongoose");
 // get all courses by name
 const getCoursesbyName = async (req, res) => {
   const courses = await Course.find({}).sort({ courseName: 1 });
-
-  res.status(200).json(courses);
+  return res.status(200).json(courses);
 };
 
 // get all reviews
 const getReviews = async (req, res) => {
   const reviews = await Review.find({}).sort({ createdAt: -1 });
-
-  res.status(200).json(reviews);
+  return res.status(200).json(reviews);
 };
 //GET reviews of specific course
 const getReviewsByCourse = async (req, res) => {
@@ -24,7 +22,7 @@ const getReviewsByCourse = async (req, res) => {
     return res.status(404).json({ error: "No reviews for this course number" });
   }
 
-  res.status(200).json(reviews);
+  return res.status(200).json(reviews);
 };
 
 //GET reviews of specific user
@@ -35,7 +33,7 @@ const getReviewsByNickName = async (req, res) => {
     createdAt: -1,
   });
 
-  res.status(200).json(reviews);
+  return res.status(200).json(reviews);
 };
 
 // get a single review
@@ -52,7 +50,7 @@ const getReview = async (req, res) => {
     return res.status(404).json({ error: "No such review" });
   }
 
-  res.status(200).json(review);
+  return res.status(200).json(review);
 };
 
 // create a new review for new course
@@ -103,9 +101,9 @@ const createReviewNewCourse = async (req, res) => {
       counter,
     });
 
-    res.status(200).json(review);
+    return res.status(200).json(review);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message });
   }
 };
 
@@ -187,9 +185,9 @@ const createReview = async (req, res) => {
       }
     );
 
-    res.status(200).json(updatedCourse);
+    return res.status(200).json(updatedCourse);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message });
   }
 };
 
@@ -216,7 +214,7 @@ const deleteReview = async (req, res) => {
   let counter = parseFloat(course.counter);
   if (counter == 1) {
     await Course.findOneAndDelete({ courseNumber: review.courseNumber });
-    res.status(200).json(review);
+    return res.status(200).json(review);
   } else {
     let newHardGrade = updateAverageDelete(
       counter,
@@ -248,7 +246,7 @@ const deleteReview = async (req, res) => {
         totalGrade: newTotalGrade.toString(),
       }
     );
-    res.status(200).json(review);
+    return res.status(200).json(review);
   }
 };
 const deleteAllReviews = async (req, res) => {
@@ -289,7 +287,7 @@ const updateReview = async (req, res) => {
       }
     );
   }
-  res.status(200).json(review);
+  return res.status(200).json(review);
 };
 
 module.exports = {
