@@ -27,7 +27,7 @@ userSchema.statics.signup = async function (email, password) {
   }
 
   //check ig bgu mail
-  if (!email.includes("post.bgu.ac.il") && !email.includes("bgu.ac.il"))
+  if (!email.endsWith("bgu.ac.il"))
     throw Error("Please Use BGU Email Address");
 
   if( password.length< 8)
