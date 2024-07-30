@@ -73,6 +73,11 @@ const createReviewNewCourse = async (req, res) => {
 
   // add to the database
   try {
+    const courses = await Course.find({}).sort({ courseName: 1 });
+    if (courses.some((course) => course.courseNumber === courseNumber)) {
+      console.log("Existing Course");
+      return res.status(400).json({ error: "Existing Course" });
+    }
     const review = await Review.create({
       nickname,
       courseNumber,
@@ -131,7 +136,6 @@ const createReview = async (req, res) => {
   });
 
   if (myReview) {
-    console.log(myReview);
     return res.status(400).json({ error: "You already commented this course" });
   }
 
